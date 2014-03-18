@@ -8,7 +8,7 @@ describe 'Calculator', ->
 
     it 'should be able to subtract two numbers', ->
         expect(calc.subtract 32, 18).toBe 14
-        # expect(calc.subtract 10, 5).toBe 5
+        expect(calc.subtract 10, 5).toBe 5
 
     it 'should be able to multiply two numbers', ->
         expect(calc.multiply 6, 4).toBe 24
