@@ -26,11 +26,16 @@ module.exports = (grunt) ->
 
         coffee:
             compile:
+                options:
+                    join: true
+                    sourceMap: true
                 files:
                     '<%= meta.build.js %>/app.js': '<%= meta.src.coffee %>/*.coffee'
             compileBare:
                 options:
+                    join: true
                     bare: true
+                    sourceMap: true
                 files:
                     '<%= meta.build.js %>/app.js': '<%= meta.src.coffee %>/**/*.coffee'
             compileSpecs:
