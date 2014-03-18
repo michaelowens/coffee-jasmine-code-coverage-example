@@ -17,11 +17,13 @@ module.exports = (grunt) ->
             coffee:
                 options:
                     atBegin: true
+                    interrupt: true
                 files: ['<%= meta.src.coffee %>/**/*.coffee', '<%= meta.src.spec %>/**/*.coffee']
-                tasks: ['coffee:compile']
+                tasks: ['compile']
             spec:
                 options:
                     atBegin: true
+                    interrupt: true
                 files: ['<%= meta.src.coffee %>/**/*.coffee', '<%= meta.src.spec %>/**/*.coffee']
                 tasks: ['test']
 
@@ -79,7 +81,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-jasmine'
     grunt.loadNpmTasks 'grunt-istanbul'
 
-    grunt.registerTask 'default', ['compile', 'watch:coffee']
-    grunt.registerTask 'compile', ['clean:js', 'coffee:compileBare', 'coffee:compileSpecs']
+    grunt.registerTask 'default', ['watch:coffee']
+    grunt.registerTask 'compile', ['clean:js', 'coffee:compile', 'coffee:compileSpecs']
     grunt.registerTask 'test', ['clean:all', 'coffee:compileBare', 'coffee:compileSpecs', 'jasmine', 'compile']
 
