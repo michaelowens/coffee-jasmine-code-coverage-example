@@ -75,13 +75,24 @@ module.exports = (grunt) ->
                             }
                         ]
 
+        uglify:
+            deploy:
+                options:
+                    sourceMap: true
+                    sourceMapIncludeSources: true
+                    sourceMapIn: '<%= meta.bin.js %>/app.js.map'
+                files:
+                    '<%= meta.bin.js %>/app.min.js': ['<%= meta.bin.js %>/app.js']
+
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-jasmine'
+    grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-istanbul'
 
     grunt.registerTask 'default', ['watch:coffee']
     grunt.registerTask 'compile', ['clean:js', 'coffee:compile', 'coffee:compileSpecs']
     grunt.registerTask 'test', ['clean:all', 'coffee:compileBare', 'coffee:compileSpecs', 'jasmine', 'compile']
+    grunt.registerTask 'deploy', ['compile', 'uglify:deploy']
 
