@@ -28,4 +28,5 @@ grunt
 grunt test
 grunt watch:coffee
 grunt watch:spec
+grunt deploy
 ```
