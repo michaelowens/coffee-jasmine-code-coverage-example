@@ -9,7 +9,7 @@ A quick example on how to do code coverage with the following tools:
 
 ## How to run
 
-First, install grunt-cli globally:
+First, install `grunt-cli` globally:
 
 ```
 npm install -g grunt
