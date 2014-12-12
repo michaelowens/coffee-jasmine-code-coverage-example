@@ -5,14 +5,14 @@ A quick example on how to do code coverage with the following tools:
 - CoffeeScript
 - Jasmine
 - Istanbul
-- Grunt
+- Gulp
 
 ## How to run
 
-First, install `grunt-cli` globally:
+First, install `gulp` globally:
 
 ```
-npm install -g grunt
+npm install -g gulp
 ```
 
 Next, install all required packages:
@@ -21,12 +21,15 @@ Next, install all required packages:
 npm install
 ```
 
-And finally, run grunt with one of the following commands:
+And finally, run gulp:
 
 ```
-grunt
-grunt test
-grunt watch:coffee
-grunt watch:spec
-grunt deploy
+# runs watcher & compiles scripts
+gulp
+
+# only compiles scripts
+gulp scripts
+
+# compiles & minifies scripts
+gulp deploy
 ```
